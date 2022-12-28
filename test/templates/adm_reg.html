@@ -6,9 +6,14 @@
 </head>
 <body>
     <div>
-        <form>
-
+        <form method="post" class="login_form">
+            <input type="text" placeholder="Логин" name="login">
+            <input type="password" placeholder="Пароль" name="psw">
+            <button type="submit">Войти</button>
         </form>
     </div>
+    {% for i in get_flashed_messages() %}
+        {{ i }}
+    {% endfor %}
 </body>
 </html>

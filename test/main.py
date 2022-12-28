@@ -1,11 +1,23 @@
-from flask import Flask, render_template, request, redirect, session
-import sqlite3
+from flask import Flask, render_template, request, redirect, session, flash
+import sqlite3, os
 from flask_login import LoginManager
-from UserLogin import UserLogin
 from waitress import serve
 
 conn = sqlite3.connect('database.db', check_same_thread=False)  # Создание файла базы данных, если его нет
-sql = conn.cursor()
+cur = conn.cursor()
+conn.commit()
+
+cur.execute("""CREATE TABLE IF NOT EXISTS users(
+   login TEXT,
+   password TEXT);
+""")
+cur.execute("""CREATE TABLE IF NOT EXISTS photos(
+   user TEXT,
+   photo BLOB);
+""")
+
+cur.execute("""INSERT INTO users(login, password) 
+   VALUES('1', '1');""")
 conn.commit()
 
 app = Flask(__name__)
@@ -15,13 +27,14 @@ app.config['SECRET_KEY'] = '8614b78a4b9c76bac8fdab1e5792ffb47ce9d66e'  # шиф�
 login_manager = LoginManager(app)
 
 
-@login_manager.user_loader
-def load_user():
-    print('load+user')
+def convert_to_binary_data(filename):
+    with open(filename, 'rb') as file:
+        blob_data = file.read()
+    return blob_data
 
 
 @app.route('/')
-def hello():
+def main():
     return render_template('main_first.html')
 
 
@@ -35,15 +48,27 @@ def checklist():
     return '123'
 
 
-@app.route('/admin')
+@app.route('/admin', methods=['POST', 'GET'])
 def adm_reg():
-    pass
-    # session.permanent = False   # сохраняется ли при закрытии браузера
-    # if 'visits' in session:
-    #     session['visits'] = session.get('visits') + 1
-    # else:
-    #     session['visits'] = 1
-    # return str(session['visits'])
+    if request.method == 'GET':
+        return render_template('adm_reg.html')
+    else:
+        p = cur.execute(f"SELECT password FROM users WHERE login='{request.form['login']}'").fetchone()
+        if p and p[0] == request.form['psw']:
+            session['login'] = 1
+            return redirect('/adm_panel')
+        else:
+            flash('Не верный логин или пароль')
+            return render_template('adm_reg.html')
+
+
+@app.route('/adm_panel', methods=['POST', 'GET'])
+def adm_panel():
+    if request.method == 'GET':
+        return render_template('adm_panel.html')
+    else:
+        cur.execute(
+            f"""INSERT INTO photos(user, photo) VALUES({request.form['user']}, {convert_to_binary_data(request.form['photo'])};""")
 
 
 @app.errorhandler(404)
