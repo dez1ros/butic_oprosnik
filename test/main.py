@@ -1,7 +1,11 @@
-from flask import Flask, render_template, request, redirect, session, flash
+from flask import Flask, render_template, request, redirect, session, flash, url_for
 import sqlite3, os
 from flask_login import LoginManager
 from waitress import serve
+from werkzeug.utils import secure_filename
+
+UPLOAD_FOLDER = 'C:\\Users\\user\\PycharmProjects\\butic\\test\\static'
+ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
 
 conn = sqlite3.connect('database.db', check_same_thread=False)  # Создание файла базы данных, если его нет
 cur = conn.cursor()
@@ -23,14 +27,12 @@ conn.commit()
 app = Flask(__name__)
 app.config['TEMPLATES_AUTO_RELOAD'] = True
 app.config['SECRET_KEY'] = '8614b78a4b9c76bac8fdab1e5792ffb47ce9d66e'  # шифр сессии
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
-login_manager = LoginManager(app)
 
-
-def convert_to_binary_data(filename):
-    with open(filename, 'rb') as file:
-        blob_data = file.read()
-    return blob_data
+def allowed_file(filename):
+    return '.' in filename and \
+           filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 
 @app.route('/')
@@ -67,8 +69,11 @@ def adm_panel():
     if request.method == 'GET':
         return render_template('adm_panel.html')
     else:
-        cur.execute(
-            f"""INSERT INTO photos(user, photo) VALUES({request.form['user']}, {convert_to_binary_data(request.form['photo'])};""")
+        file = request.files['photo']
+        if file and allowed_file(file.filename):
+            filename = secure_filename(file.filename)
+            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+        return render_template('adm_panel.html')
 
 
 @app.errorhandler(404)
