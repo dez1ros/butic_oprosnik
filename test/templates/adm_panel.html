@@ -12,5 +12,19 @@
             <button type="submit" >Добавить</button>
         </form>
     </div>
+    <div>
+        {% for i in range(len) %}
+        <div>
+            <p>
+                <input type="text" value="{{ names[i][0] }}">
+                <button type="submit"><img src="static/img/{{ photos[i][0] }}" width="200" height="200"></button>
+                <button type="submit"><img src="static/img/bucket.png" width="50" height="50"></button>
+            </p>
+        </div>
+        {% endfor %}
+        <div>
+            <input type="submit" value="Сохранить изменения">
+        </div>
+    </div>
 </body>
 </html>

@@ -4,9 +4,9 @@ from flask_login import LoginManager
 from waitress import serve
 from werkzeug.utils import secure_filename
 
-UPLOAD_FOLDER = 'C:\\Users\\user\\PycharmProjects\\butic\\test\\static'
+UPLOAD_FOLDER = 'C:\\Users\\user\\PycharmProjects\\butic\\test\\static\\img'
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
-
+LAST_FILE = 0
 conn = sqlite3.connect('database.db', check_same_thread=False)  # Создание файла базы данных, если его нет
 cur = conn.cursor()
 conn.commit()
@@ -17,11 +17,12 @@ cur.execute("""CREATE TABLE IF NOT EXISTS users(
 """)
 cur.execute("""CREATE TABLE IF NOT EXISTS photos(
    user TEXT,
-   photo BLOB);
+   photo TEXT);
 """)
 
-cur.execute("""INSERT INTO users(login, password) 
-   VALUES('1', '1');""")
+if cur.execute("SELECT * FROM users").fetchone() is None:
+    cur.execute("""INSERT INTO users(login, password) 
+       VALUES('1', '1');""")
 conn.commit()
 
 app = Flask(__name__)
@@ -37,6 +38,7 @@ def allowed_file(filename):
 
 @app.route('/')
 def main():
+    print(session['login'])
     return render_template('main_first.html')
 
 
@@ -52,6 +54,9 @@ def checklist():
 
 @app.route('/admin', methods=['POST', 'GET'])
 def adm_reg():
+    if session['login'] == 1:
+        return redirect('/adm_panel')
+    session.permanent = False
     if request.method == 'GET':
         return render_template('adm_reg.html')
     else:
@@ -66,14 +71,26 @@ def adm_reg():
 
 @app.route('/adm_panel', methods=['POST', 'GET'])
 def adm_panel():
-    if request.method == 'GET':
-        return render_template('adm_panel.html')
-    else:
+    global LAST_FILE
+    print(session['login'])
+    if session['login'] == 0:
+        return redirect('/admin')
+    if request.method == "POST":
         file = request.files['photo']
+        # print(os.path.exists(UPLOAD_FOLDER + "\\" + file.filename))           проверка есть ли файл
+        cur.execute(f"""INSERT INTO photos(user, photo)
+           VALUES('{request.form['user']}', '{LAST_FILE + 1}.jpg');""")
+        conn.commit()
+
         if file and allowed_file(file.filename):
-            filename = secure_filename(file.filename)
+            filename = secure_filename(f"{LAST_FILE + 1}.jpg")
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-        return render_template('adm_panel.html')
+            LAST_FILE += 1
+
+    names = cur.execute("SELECT user FROM photos").fetchall()
+    photos = cur.execute("SELECT photo FROM photos").fetchall()
+    print(names, photos)
+    return render_template('adm_panel.html', names=names, photos=photos, len=len(names))
 
 
 @app.errorhandler(404)
