@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>adminka</title>
 </head>
 <body>
     <div>
@@ -10,7 +10,7 @@
     </div>
     <div>
         <form method="post" enctype="multipart/form-data">
-            <input type="text" placeholder="Введите имя" name="user">
+            <input type="text" placeholder="Введите имя" name="name">
             <input accept="image/*" type="file" placeholder="Выберете файл" name="photo">
             <button type="submit" >Добавить</button>
         </form>
@@ -18,16 +18,11 @@
     <div>
         {% for i in range(len) %}
         <div>
-            <p>
-                <input type="text" value="{{ names[i][0] }}">
-                <button type="submit"><img src="static/img/{{ photos[i][0] }}" width="200" height="200"></button>
-                <button type="submit"><img src="static/img/bucket.png" width="50" height="50"></button>
-            </p>
+            <input type="text" value="{{ names[i][0] }}">
+            <img src="/static/img/{{ photos[i][0] }}" width="200" height="200">
+            <a href="/edit?image={{ photos[i][0] }}">Изменить</a>
         </div>
         {% endfor %}
-        <div>
-            <input type="submit" value="Сохранить изменения">
-        </div>
     </div>
 </body>
 </html>

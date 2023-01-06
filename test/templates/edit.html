@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Изменения</title>
+</head>
+<body>
+    <div>
+        <form method="post" enctype="multipart/form-data">
+            <input type="text" value="{{ name }}" name="name">
+            <img src="static/img/{{ image }}" width="200" height="200">
+            <input accept="image/*" type="file" placeholder="Выберете новый файл" name="photo">
+            <a href="/del/{{ image }}">Удалить</a>
+            <button type="submit"> Сохранить имя и изображение</button>
+        </form>
+    </div>
+</body>
+</html>
