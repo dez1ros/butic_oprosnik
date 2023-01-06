@@ -11,16 +11,17 @@ conn = sqlite3.connect('database.db', check_same_thread=False)  # Создани
 cur = conn.cursor()
 conn.commit()
 
-cur.execute("""CREATE TABLE IF NOT EXISTS users(
+cur.execute("""CREATE TABLE IF NOT EXISTS users(        
    login TEXT,
    password TEXT);
-""")
+""")    # создание бд с логином и паролем админа
+
 cur.execute("""CREATE TABLE IF NOT EXISTS photos(
    user TEXT,
-   photo TEXT);
-""")
+   photo BLOB);
+""")    # бд с фотками
 
-if cur.execute("SELECT * FROM users").fetchone() is None:
+if cur.execute("SELECT * FROM users").fetchone() is None:         # Добавляем логин и пароль администратора если его нет
     cur.execute("""INSERT INTO users(login, password) 
        VALUES('1', '1');""")
 conn.commit()
@@ -31,30 +32,29 @@ app.config['SECRET_KEY'] = '8614b78a4b9c76bac8fdab1e5792ffb47ce9d66e'  # шиф�
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 
-def allowed_file(filename):
+def allowed_file(filename):        # проверка подходит ли нам выгруженный пользователем файл
     return '.' in filename and \
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 
 @app.route('/')
-def main():
-    print(session['login'])
+def main():                                                    # ну тут просто главная менюшка
     return render_template('main_first.html')
 
 
-@app.route('/gallery')
+@app.route('/gallery')                 # это галерея детских работ
 def gallery():
     return '1233333'
 
 
-@app.route('/checklist')
+@app.route('/checklist')                        # опросник
 def checklist():
     return '123'
 
 
-@app.route('/admin', methods=['POST', 'GET'])
+@app.route('/admin', methods=['POST', 'GET'])            # вход в аккаут администратора
 def adm_reg():
-    if session['login'] == 1:
+    if 'login' in session and session['login'] == 1:
         return redirect('/adm_panel')
     session.permanent = False
     if request.method == 'GET':
@@ -69,11 +69,10 @@ def adm_reg():
             return render_template('adm_reg.html')
 
 
-@app.route('/adm_panel', methods=['POST', 'GET'])
+@app.route('/adm_panel', methods=['POST', 'GET'])               # админ панель
 def adm_panel():
     global LAST_FILE
-    print(session['login'])
-    if session['login'] == 0:
+    if 'login' not in session:
         return redirect('/admin')
     if request.method == "POST":
         file = request.files['photo']
@@ -94,10 +93,10 @@ def adm_panel():
 
 
 @app.errorhandler(404)
-def pageNotFound(error):
+def pageNotFound(error):                       # это я так для теста добавил
     return '<h1>Такой нет страницы</h1>', 404
 
 
-if __name__ == '__main__':
+if __name__ == '__main__':          # ну и запуск сервера конечно же
     # serve(app, host="127.0.0.1", port=777)
     app.run(debug=True)
