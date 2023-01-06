@@ -2,27 +2,41 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="static/css/style.css"/>
     <title>adminka</title>
 </head>
 <body>
-    <div>
-        <a href="/exit">Выйти</a>
-    </div>
-    <div>
+<div>
+    <a href="/"><img class="logo" src="static/img/bytic_logo.png"></a>
+</div>
+<div style="position:fixed; top:2%; left:90%;">
+    <a href="/exit">Выйти из аккаунта</a>
+</div>
+<div>
+    <div class="add_img">
         <form method="post" enctype="multipart/form-data">
-            <input type="text" placeholder="Введите имя" name="name">
+            <input autocomplete="off" type="text" placeholder="Введите имя" name="name">
             <input accept="image/*" type="file" placeholder="Выберете файл" name="photo">
-            <button type="submit" >Добавить</button>
+            <button style="position:fixed; top: 90%; left:90%;" type="submit">Добавить</button>
         </form>
     </div>
-    <div>
-        {% for i in range(len) %}
-        <div>
-            <input type="text" value="{{ names[i][0] }}">
-            <img src="/static/img/{{ photos[i][0] }}" width="200" height="200">
-            <a href="/edit?image={{ photos[i][0] }}">Изменить</a>
-        </div>
-        {% endfor %}
+    <div class="all_img up_centered">
+        <table>
+            {% for i in range(len) %}
+            <tr>
+                <td style="width: 10%;">
+                    {{ names[i][0] }}
+                </td>
+                <td>
+                    <img src="/static/img/rab/{{ photos[i][0] }}" width="200" height="200">
+                </td>
+                <td style="width: 50%;">
+                    <a href="/edit?image={{ photos[i][0] }}">Изменить</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
     </div>
+</div>
 </body>
 </html>

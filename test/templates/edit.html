@@ -2,17 +2,21 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="static/css/style.css"/>
     <title>Изменения</title>
 </head>
 <body>
-    <div>
-        <form method="post" enctype="multipart/form-data">
-            <input type="text" value="{{ name }}" name="name">
-            <img src="static/img/{{ image }}" width="200" height="200">
-            <input accept="image/*" type="file" placeholder="Выберете новый файл" name="photo">
-            <a href="/del/{{ image }}">Удалить</a>
-            <button type="submit"> Сохранить имя и изображение</button>
-        </form>
-    </div>
+<div>
+    <a href="/"><img class="logo" src="static/img/bytic_logo.png"></a>
+</div>
+<div>
+    <form method="post" enctype="multipart/form-data">
+        <input autocomplete="off" type="text" value="{{ name }}" name="name">
+        <img src="static/img/rab/{{ image }}" width="200" height="200">
+        <input accept="image/*" type="file" placeholder="Выберете новый файл" name="photo">
+        <a href="/del/{{ image }}">Удалить</a>
+        <button type="submit"> Сохранить имя и изображение</button>
+    </form>
+</div>
 </body>
 </html>

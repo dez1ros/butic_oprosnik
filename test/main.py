@@ -4,7 +4,7 @@ from flask_login import LoginManager
 from waitress import serve
 from werkzeug.utils import secure_filename
 
-UPLOAD_FOLDER = 'C:\\Users\\user\\PycharmProjects\\butic\\test\\static\\img'
+UPLOAD_FOLDER = 'C:\\Users\\user\\PycharmProjects\\butic\\test\\static\\img\\rab'
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
 conn = sqlite3.connect('database.db', check_same_thread=False)  # Создание файла базы данных, если его нет
 cur = conn.cursor()
@@ -33,12 +33,12 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 @app.route('/')
 def main():  # ну тут просто главная менюшка
-    return render_template('main_first.html')
+    return render_template('main.html')
 
 
 @app.route('/gallery')  # это галерея детских работ
 def gallery():
-    return '1233333'
+    return render_template('gallery.html')
 
 
 @app.route('/checklist')  # опросник
@@ -102,8 +102,9 @@ def edit():
     if request.method == 'POST':
         cur.execute(f"UPDATE photos SET name='{request.form['name']}' WHERE photo='{filename}'")
         conn.commit()
-        file = request.files['photo']
-        file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+        if request.files['photo']:
+            file = request.files['photo']
+            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
         return redirect('/adm_panel')
     name = cur.execute(f"SELECT name FROM photos WHERE photo='{filename}'").fetchone()[0]
     return render_template('edit.html', image=filename, name=name)
