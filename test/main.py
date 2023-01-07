@@ -38,7 +38,9 @@ def main():  # ну тут просто главная менюшка
 
 @app.route('/gallery')  # это галерея детских работ
 def gallery():
-    return render_template('gallery.html')
+    names = cur.execute("SELECT name FROM photos").fetchall()
+    photos = cur.execute("SELECT photo FROM photos").fetchall()
+    return render_template('gallery.html', names=names, photos=photos, len=len(names))
 
 
 @app.route('/checklist')  # опросник

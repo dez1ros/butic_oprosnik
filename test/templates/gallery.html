@@ -3,9 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <title>Галерея</title>
-    <script type="text/javascript" src="static/js/gallery.js"></script>
+    <link rel="stylesheet" href="static/css/gal.css"/>
 </head>
 <body>
-<p>dsadsad</p>
+<div>
+    <a href="/"><img class="logo" src="static/img/bytic_logo.png"></a>
+</div>
+<div id="gallery">
+    <div class="photo">
+        <h3 class="shown">{{ names[0][0] }}</h3>
+        <img src="static/img/rab/1.jpg" class="shown">
+        {% for i in range(len - 1) %}
+        <h3>{{ names[i + 1][0] }}</h3>
+        <img src="static/img/rab/{{ photos[i + 1][0] }}">
+        {% endfor %}
+    </div>
+    <div class="tabs">
+        <input type="button" class="prev" value="Назад">
+        <input type="button" class="next" value="Вперед">
+    </div>
+</div>
+
+<script src="static/js/gallery.js"></script>
 </body>
 </html>

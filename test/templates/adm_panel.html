@@ -24,13 +24,13 @@
         <table>
             {% for i in range(len) %}
             <tr>
-                <td style="width: 10%;">
+                <td>
                     {{ names[i][0] }}
                 </td>
                 <td>
                     <img src="/static/img/rab/{{ photos[i][0] }}" width="200" height="200">
                 </td>
-                <td style="width: 50%;">
+                <td>
                     <a href="/edit?image={{ photos[i][0] }}">Изменить</a>
                 </td>
             </tr>

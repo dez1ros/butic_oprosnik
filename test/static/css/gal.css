@@ -1,0 +1,67 @@
+.logo {
+    z-index: 1;
+    position: absolute;
+    top: 1%;
+    left: 1%;
+    height: 6%;
+    width: 14%;
+}
+
+* {
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+#gallery{
+    width: 500px;
+    text-align: center;
+    margin: 0 auto; 
+}
+.photo{
+    position: relative;
+    height: 600px;
+    width: 500px;
+}
+
+.photo img{
+    width: 500px;
+    height: 500px;
+    position: absolute;
+    opacity: 0;
+    left: 0;
+    transition: opacity 1s;
+}
+
+.photo h3{
+    position: absolute;
+    top: 90%;
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+.photo img.shown{
+     opacity: 1;
+}
+
+.photo h3.shown{
+     opacity: 1;
+}
+
+
+
+
+
+.next {
+    position: absolute;
+    top:50%;
+    left:90%;
+}
+
+.prev {
+    position: absolute;
+    top:50%;
+    left:5%;
+}
