@@ -1,55 +1,44 @@
-//timeout = setTimeout(next_img, 5000);
-//
-//
-//var i = 1;
-//len = document.getElementById("len");
-//function next_img(){
-//    clearTimeout(timeout);
-//    timeout = setTimeout(next_img, 5000);
-//    if (i >= len.textContent){
-//        i = 0;
-//    }
-//    i++;
-//    document.getElementById("num").textContent = i;
-//    document.getElementById("img").src='static/img/rab/' + i + '.jpg';
-//
-//}
-//
-//function do_img(){
-//    i--;
-//    if (i == 0){
-//        i = len.textContent;
-//    }
-//    document.getElementById("num").textContent = i;
-//    document.getElementById("img").src='static/img/rab/' + i + '.jpg';
-//}
+/* Устанавливаем стартовый индекс слайда по умолчанию: */
+let slideIndex = 1;
+/* Вызываем функцию, которая реализована ниже: */
+showSlides(slideIndex);
 
-var btn_prev = document.querySelector('.tabs .prev'),
-    btn_next = document.querySelector('.tabs .next');
+/* Увеличиваем индекс на 1 — показываем следующий слайд: */
+function nextSlide() {
+    showSlides(slideIndex += 1);
+}
 
-var images = document.querySelectorAll('.photo img');
-var names = document.querySelectorAll('.photo h3');
-var i = 0;
-btn_prev.onclick = function(){
-   images[i].className = "";
-   names[i].className = "";
-    i = i - 1;
-    if( i < 0){
-      i = images.length - 1;
+/* Уменьшаем индекс на 1 — показываем предыдущий слайд: */
+function previousSlide() {
+    showSlides(slideIndex -= 1);
+}
+
+/* Устанавливаем текущий слайд: */
+function currentSlide(n) {
+    showSlides(slideIndex = n);
+}
+
+/* Функция перелистывания: */
+function showSlides(n) {
+    /* Обращаемся к элементам с названием класса "item", то есть к картинкам: */
+    let slides = document.getElementsByClassName("item");
+
+    /* Проверяем количество слайдов: */
+    if (n > slides.length) {
+      slideIndex = 1
     }
-    images[i].className = "shown";
-    names[i].className = "shown";
+    if (n < 1) {
+        slideIndex = slides.length
+    }
+
+    /* Проходим по каждому слайду в цикле for: */
+    for (let slide of slides) {
+        slide.style.display = "none";
+    }
+    /* Делаем элемент блочным: */
+    slides[slideIndex - 1].style.display = "block";
 };
 
-btn_next.onclick = function(){
-    images[i].className = "";
-    names[i].className = "";
-    i = i + 1; //i++
-    if( i >= images.length){
-      i = 0;
-    }
-    images[i].className = "shown";
-    names[i].className = "shown";
-};
+const windowInnerWidth = document.documentElement.clientWidth;
+const windowInnerHeight = document.documentElement.clientHeight;
 
-timeout = setTimeout(next_img, 5000);
