@@ -21,16 +21,16 @@
         </form>
     </div>
     <div class="all_img up_centered">
-        <table>
+        <table style="border:1;">
             {% for i in range(len) %}
             <tr>
-                <td>
+                <td class="asd">
                     {{ names[i][0] }}
                 </td>
                 <td>
                     <img src="/static/img/rab/{{ photos[i][0] }}" width="200" height="200">
                 </td>
-                <td>
+                <td class="asd">
                     <a href="/edit?image={{ photos[i][0] }}">Изменить</a>
                 </td>
             </tr>

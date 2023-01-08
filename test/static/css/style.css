@@ -7,8 +7,7 @@ body {
     position: absolute;
     top: 1%;
     left: 1%;
-    height: 6%;
-    width: 14%;
+    height: 5%;
 }
 
 * {
@@ -115,5 +114,26 @@ body {
 }
 
 table {
-    border-collapse: collapse;
+    table-layout: fixed;
+   border-collapse: collapse;
+   /*убираем пустые промежутки между ячейками*/
+   border: 1px solid grey;
+   /*устанавливаем для таблицы внешнюю границу серого цвета толщиной 1px*/
+}
+th, td {
+   border: 1px solid grey;
+}
+
+.dom_img {
+    height: 50vh;
+    position: absolute;
+    bottom:0;
+    left:0;
+}
+
+.sun_img {
+    height: 20vh;
+    position: absolute;
+    top:3vh;
+    right:3vw;
 }

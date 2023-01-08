@@ -8,8 +8,7 @@ body {
     position: absolute;
     top: 1%;
     left: 1%;
-    height: 6%;
-    width: 14%;
+    height: 5%;
 }
 
 p {
@@ -25,13 +24,13 @@ p {
 }
 
 .slider{
-    padding-top:4%;
-    max-width: 90%;
+    padding-top:10vh;
+    max-width: 80%;
     /* Положение элемента устанавливается относительно его исходной позиции: */
     position: relative;
     /* Центрируем по горизонтали: */
     margin: auto;
-    height: 800px;
+    height: 700px;
 }
 
 /* Картинка масштабируется по отношению к родительскому элементу: */
@@ -39,7 +38,7 @@ p {
     /* Элемент меняет размер так, чтобы заполнить блок и сохранить пропорции: */
     object-fit: cover;
     width: 100%;
-    height: 800px;
+    height: 700px;
 }
 
 /* Кнопки назад и вперёд: */
@@ -54,6 +53,7 @@ p {
     padding: 16px;
     /* Оформление самих кнопок: */
     color: white;
+    background-color: rgba(0, 0, 0, 0.2);
     font-weight: bold;
     font-size:40px;
     /* Плавное появление фона при наведении курсора: */
@@ -66,11 +66,6 @@ p {
     border-radius: 3px 0 0 3px;
 }
 
-/* При наведении курсора на кнопки добавляем фон кнопок: */
-.slider .previous:hover,
-.slider .next:hover {
-    background-color: rgba(0, 0, 0, 0.2);
-}
 
 /* Анимация слайдов: */
 .slider .item {
