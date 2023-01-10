@@ -2,28 +2,40 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="static/css/style.css"/>
+    <link rel="stylesheet" href="static/css/reg.css"/>
     <title>reg adm</title>
 </head>
 <body>
+<!--<div>-->
+<!--    <a href="/"><img class="logo" src="static/img/bytic_logo.png"></a>-->
+<!--</div>-->
+<!--<div>-->
+<!--    <form method="post" class="centr_form">-->
+<!--        <h1>Войдите в аккаунт</h1>-->
+<!--        <div class="form">-->
+<!--            <input autocomplete="off" type="text" placeholder="Логин" name="login" class="lable"><br>-->
+<!--            <input autocomplete="off" type="password" placeholder="Пароль" name="psw" class="lable"><br>-->
+<!--            <button type="submit" class="submit">Войти</button>-->
+<!--            <br>-->
+<!--            <div>-->
+<!--                {% for i in get_flashed_messages() %}-->
+<!--                {{ i }}-->
+<!--                {% endfor %}-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </form>-->
+<!--</div>-->
 <div>
-    <a href="/"><img class="logo" src="static/img/bytic_logo.png"></a>
-</div>
-<div>
-    <form method="post" class="centr_form">
-        <h1>Войдите в аккаунт</h1>
-        <div class="form">
-            <input autocomplete="off" type="text" placeholder="Логин" name="login" class="lable"><br>
-            <input autocomplete="off" type="password" placeholder="Пароль" name="psw" class="lable"><br>
+    <div>
+        <a href="/"><img class="logo" src="static/img/bytic_logo.png"></a>
+        <form method="post">
+            <div class="text">
+            <input autocomplete="off" type="text" placeholder="Введите логин" name="login" class="lable">
+            <input autocomplete="off" type="password" placeholder="Введите пароль" name="psw" class="lable">
             <button type="submit" class="submit">Войти</button>
-            <br>
-            <div>
-                {% for i in get_flashed_messages() %}
-                {{ i }}
-                {% endfor %}
             </div>
-        </div>
-    </form>
+        </form>
+    </div>
 </div>
 </body>
 </html>

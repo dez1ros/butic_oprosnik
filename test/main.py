@@ -47,7 +47,6 @@ def gallery():
 def checklist():
     return '123'
 
-
 @app.route('/admin', methods=['POST', 'GET'])  # вход в аккаут администратора
 def adm_reg():
     if 'login' in session and session['login'] == 1:

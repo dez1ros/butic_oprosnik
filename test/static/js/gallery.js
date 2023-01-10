@@ -5,6 +5,8 @@ showSlides(slideIndex);
 
 /* Увеличиваем индекс на 1 — показываем следующий слайд: */
 function nextSlide() {
+    clearTimeout(timerId);
+    timerId = setTimeout(nextSlide, 6000);
     showSlides(slideIndex += 1);
 }
 
@@ -39,6 +41,4 @@ function showSlides(n) {
     slides[slideIndex - 1].style.display = "block";
 };
 
-const windowInnerWidth = document.documentElement.clientWidth;
-const windowInnerHeight = document.documentElement.clientHeight;
-
+timerId = setTimeout(nextSlide, 6000);
