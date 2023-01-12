@@ -47,6 +47,7 @@ def gallery():
 def checklist():
     return '123'
 
+
 @app.route('/admin', methods=['POST', 'GET'])  # вход в аккаут администратора
 def adm_reg():
     if 'login' in session and session['login'] == 1:
@@ -74,7 +75,6 @@ def adm_panel():
         photos = cur.execute("SELECT photo FROM photos").fetchall()
         if photos:
             photos = photos[-1][0]
-            print(photos, int(photos.split('.')[0]))
             cur.execute(f"""INSERT INTO photos(name, photo)
                            VALUES('{request.form['name']}', '{int(photos.split('.')[0]) + 1}.jpg');""")
             filename = secure_filename(f"{int(photos.split('.')[0]) + 1}.jpg")
@@ -89,7 +89,6 @@ def adm_panel():
 
     names = cur.execute("SELECT name FROM photos").fetchall()
     photos = cur.execute("SELECT photo FROM photos").fetchall()
-    print(names, photos)
     return render_template('adm_panel.html', names=names, photos=photos, len=len(names))
 
 
@@ -132,5 +131,5 @@ def pageNotFound(error):  # это я так для теста добавил
 
 
 if __name__ == '__main__':  # ну и запуск сервера конечно же
-    # serve(app, host="127.0.0.1", port=777)
-    app.run(debug=True)
+    serve(app, host="0.0.0.0", port=8080)
+    # app.run(debug=True)
