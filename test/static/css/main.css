@@ -1,5 +1,6 @@
 .logo {
-    top: 1vh;
+    top: 2vh;
+    left: 1vw;
     position: absolute;
     height: 7vh;
 }
@@ -11,10 +12,10 @@ body {
 }
 
 header {
-    z-index: 1;
+    z-index: 2;
     top:0;
     width: 100%;
-    height: 10vh;
+    height: 15vh;
     background: #2c3e50;
 }
 
@@ -25,6 +26,7 @@ header {
   transform: translate(-50%, -50%);
   text-align: center;
 }
+
 
 .f_button {
   text-decoration: none;
@@ -46,4 +48,22 @@ header {
     font-size: 7vh;
     position: absolute;
     right: 0;
+}
+
+.left_menu {
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    height: 85%;
+    width: 35vw;
+    background-color: #fff;
+}
+
+.menu {
+    z-index: 1;
+    position: absolute;
+    right: 0;
+    width: 65vw;
+    height: 85%;
+
 }
