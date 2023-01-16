@@ -2,29 +2,28 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="static/css/style.css"/>
+    <link rel="stylesheet" href="static/css/main.css"/>
     <title>байтик чтотто оооатоавт</title>
 </head>
 <body>
-<div class="body">
-
-    <div class="menu">
+<header>
+    <nav>
         <a href="/"><img class="logo" src="static/img/bytic_logo.png"></a>
-    </div>
-    <div class="split left">
-        <img class="dom_img" src="static/img/house.png">
-        <img class="sun_img" src="static/img/sun.png">
-        <div class="centered">
-            <a href="/gallery" class="f_button">Галерея детских работ</a>
-        </div>
-    </div>
+        <span class="timer" id="clock">00:00</span>
+    </nav>
+</header>
 
-    <div class="split right">
-        <div class="centered">
-            <a class="f_button" href="/checklist">Опросник</a>
-        </div>
+<div class="">
+    <div class="centered">
+        <a href="/gallery" class="f_button">Галерея детских работ</a>
     </div>
-
 </div>
+
+<!--    <div class="split right">-->
+<!--        <div class="centered">-->
+<!--            <a class="f_button" href="/checklist">Опросник</a>-->
+<!--        </div>-->
+<!--    </div>-->
+<script src="static/js/clock.js"></script>
 </body>
 </html>
