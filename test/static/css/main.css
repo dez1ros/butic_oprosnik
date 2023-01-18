@@ -27,7 +27,6 @@ header {
   text-align: center;
 }
 
-
 .f_button {
   text-decoration: none;
   display: inline-block;
@@ -35,7 +34,8 @@ header {
   color: #7CC143;
   box-shadow: 0 0 0 2px #7CC143;
   padding: 20px 0;
-  width: 300px;
+  width: 25vw;
+  font-size: 20px;
   text-align: center;
   text-transform: uppercase;
   letter-spacing: 3px;
@@ -55,7 +55,7 @@ header {
     z-index: 1;
     left: 0;
     height: 85%;
-    width: 35vw;
+    width: 30vw;
     background-color: #fff;
 }
 
@@ -63,7 +63,29 @@ header {
     z-index: 1;
     position: absolute;
     right: 0;
-    width: 65vw;
-    height: 85%;
+    width: 70vw;
+    height: 85vh;
+}
 
+.date {
+
+    background-color: #F58B1F;
+    height: 20%;
+}
+
+#date {
+    font-size: 5vw;
+}
+
+.dop_info{
+    background-color: #aaa;
+    height: 15%;
+}
+
+#dop_info {
+    font-size: 2vw;
+}
+
+.weather {
+    background-color: #DFE5D9;
 }
