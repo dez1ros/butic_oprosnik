@@ -44,6 +44,33 @@ function update_clock() {
         weather_img_1.src = "https://openweathermap.org/img/wn/" + data[0].weather[0]['icon'] + "@2x.png";
         weather_img_2.src = "https://openweathermap.org/img/wn/" + data[1].weather[0]['icon'] + "@2x.png";
         weather_img_3.src = "https://openweathermap.org/img/wn/" + data[2].weather[0]['icon'] + "@2x.png";
+        weather_img_1.src = "https://openweathermap.org/img/wn/" + data[0].weather[0]['icon'] + "@2x.png";
+        weather_img_2.src = "https://openweathermap.org/img/wn/" + data[1].weather[0]['icon'] + "@2x.png";
+        weather_img_3.src = "https://openweathermap.org/img/wn/" + data[2].weather[0]['icon'] + "@2x.png";
+        weather_img_1.src = "https://openweathermap.org/img/wn/" + data[0].weather[0]['icon'] + "@2x.png";
+        weather_img_2.src = "https://openweathermap.org/img/wn/" + data[1].weather[0]['icon'] + "@2x.png";
+        weather_img_3.src = "https://openweathermap.org/img/wn/" + data[2].weather[0]['icon'] + "@2x.png";
+        weather_img_1.src = "https://openweathermap.org/img/wn/" + data[0].weather[0]['icon'] + "@2x.png";
+        weather_img_2.src = "https://openweathermap.org/img/wn/" + data[1].weather[0]['icon'] + "@2x.png";
+        weather_img_3.src = "https://openweathermap.org/img/wn/" + data[2].weather[0]['icon'] + "@2x.png";
+        weather_img_1.src = "https://openweathermap.org/img/wn/" + data[0].weather[0]['icon'] + "@2x.png";
+        weather_img_2.src = "https://openweathermap.org/img/wn/" + data[1].weather[0]['icon'] + "@2x.png";
+        weather_img_3.src = "https://openweathermap.org/img/wn/" + data[2].weather[0]['icon'] + "@2x.png";
+        weather_img_1.src = "https://openweathermap.org/img/wn/" + data[0].weather[0]['icon'] + "@2x.png";
+        weather_img_2.src = "https://openweathermap.org/img/wn/" + data[1].weather[0]['icon'] + "@2x.png";
+        weather_img_3.src = "https://openweathermap.org/img/wn/" + data[2].weather[0]['icon'] + "@2x.png";
+        weather_img_1.src = "https://openweathermap.org/img/wn/" + data[0].weather[0]['icon'] + "@2x.png";
+        weather_img_2.src = "https://openweathermap.org/img/wn/" + data[1].weather[0]['icon'] + "@2x.png";
+        weather_img_3.src = "https://openweathermap.org/img/wn/" + data[2].weather[0]['icon'] + "@2x.png";
+        weather_img_1.src = "https://openweathermap.org/img/wn/" + data[0].weather[0]['icon'] + "@2x.png";
+        weather_img_2.src = "https://openweathermap.org/img/wn/" + data[1].weather[0]['icon'] + "@2x.png";
+        weather_img_3.src = "https://openweathermap.org/img/wn/" + data[2].weather[0]['icon'] + "@2x.png";
+        weather_img_1.src = "https://openweathermap.org/img/wn/" + data[0].weather[0]['icon'] + "@2x.png";
+        weather_img_2.src = "https://openweathermap.org/img/wn/" + data[1].weather[0]['icon'] + "@2x.png";
+        weather_img_3.src = "https://openweathermap.org/img/wn/" + data[2].weather[0]['icon'] + "@2x.png";
+        weather_img_1.src = "https://openweathermap.org/img/wn/" + data[0].weather[0]['icon'] + "@2x.png";
+        weather_img_2.src = "https://openweathermap.org/img/wn/" + data[1].weather[0]['icon'] + "@2x.png";
+        weather_img_3.src = "https://openweathermap.org/img/wn/" + data[2].weather[0]['icon'] + "@2x.png";
 
         if (Math.round(data[0].main.temp) > 0){
             grad_1.textContent = '+' + Math.round(data[0].main.temp) + '°C';
