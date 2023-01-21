@@ -17,6 +17,7 @@
     <div class="center_form hide add_menu" id="add">
         <form method="post" enctype="multipart/form-data">
             <input autocomplete="off" type="text" placeholder="Введите имя" name="name" class="input"><br>
+            <input autocomplete="off" type="text" placeholder="Введите названия курса" name="course" class="input"><br>
             <input accept="image/*" type="file" placeholder="Выберете файл" name="photo" class="input" style=";" id="input_file"><br>
 <!--            <label for="input_file">-->
 <!--                <span class="button">Выберете картинку</span>-->
@@ -37,6 +38,7 @@
             <tr>
                 <td class="asd">
                     {{ names[i][0] }}
+                    {{ courses[i][0] }}
                 </td>
                 <td>
                     <img src="/static/img/rab/{{ photos[i][0] }}" width="200" height="200">

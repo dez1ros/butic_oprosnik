@@ -6,7 +6,7 @@
 }
 
 body {
-    font-family: "montserrat", sans-serif;
+    font-family: DejaVu Sans Mono, monospace;
     background-color: #DFE5D9;
     margin:0;
 }
@@ -15,8 +15,9 @@ header {
     z-index: 2;
     top:0;
     width: 100%;
-    height: 15vh;
-    background: #2c3e50;
+    height: 12vh;
+    background: #fff;
+
 }
 
 .centered {
@@ -44,7 +45,7 @@ header {
 }
 
 .timer {
-    font-family: Verdana, Geneva, sans-serif;
+    font-family: DejaVu Sans Mono, monospace;
     font-size: 7vh;
     position: absolute;
     right: 0;
@@ -55,26 +56,26 @@ header {
     z-index: 1;
     left: 0;
     height: 85%;
-    width: 30vw;
+    width: 21vw;
     background-color: #fff;
 }
 
 .menu {
-    z-index: 1;
+    box-shadow: -2px -2px 0 0 #7CC143;
+    z-index: 10;
     position: absolute;
     right: 0;
-    width: 70vw;
-    height: 85vh;
+    width: 79vw;
+    height: 88vh;
 }
 
 .date {
-
-    background-color: #F58B1F;
-    height: 20%;
+    text-align: center;
+    background-color: #C2843A;
 }
 
 #date {
-    font-size: 5vw;
+    font-size: 8vh;
 }
 
 .dop_info{

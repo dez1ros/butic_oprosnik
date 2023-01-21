@@ -12,6 +12,7 @@
 <div>
     <form method="post" enctype="multipart/form-data">
         <input autocomplete="off" type="text" value="{{ name }}" name="name">
+        <input autocomplete="off" type="text" value="{{ course }}" name="course">
         <img src="static/img/rab/{{ image }}" width="200" height="200">
         <input accept="image/*" type="file" placeholder="Выберете новый файл" name="photo">
         <a href="/del/{{ image }}">Удалить</a>

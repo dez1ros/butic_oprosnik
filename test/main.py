@@ -17,6 +17,7 @@ cur.execute("""CREATE TABLE IF NOT EXISTS users(
 
 cur.execute("""CREATE TABLE IF NOT EXISTS photos(
    name TEXT,
+   course TEXT,
    photo TEXT);
 """)  # бд с фотками
 
@@ -32,7 +33,7 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 
 @app.route('/')
-def main():  # ну тут просто главная менюшка
+def main():            # ну тут просто главная менюшка
     return render_template('main.html')
 
 
@@ -40,7 +41,8 @@ def main():  # ну тут просто главная менюшка
 def gallery():
     names = cur.execute("SELECT name FROM photos").fetchall()
     photos = cur.execute("SELECT photo FROM photos").fetchall()
-    return render_template('gallery.html', names=names, photos=photos, len=len(names))
+    courses = cur.execute("SELECT course FROM photos").fetchall()
+    return render_template('gallery.html', names=names, photos=photos, courses=courses, len=len(names))
 
 
 @app.route('/checklist')  # опросник
@@ -75,12 +77,12 @@ def adm_panel():
         photos = cur.execute("SELECT photo FROM photos").fetchall()
         if photos:
             photos = photos[-1][0]
-            cur.execute(f"""INSERT INTO photos(name, photo)
-                           VALUES('{request.form['name']}', '{int(photos.split('.')[0]) + 1}.jpg');""")
+            cur.execute(f"""INSERT INTO photos(name, course, photo)
+                           VALUES('{request.form['name']}', '{request.form['course']}','{int(photos.split('.')[0]) + 1}.jpg');""")
             filename = secure_filename(f"{int(photos.split('.')[0]) + 1}.jpg")
         else:
-            cur.execute(f"""INSERT INTO photos(name, photo)
-                                           VALUES('{request.form['name']}', '{1}.jpg');""")
+            cur.execute(f"""INSERT INTO photos(name, course, photo)
+                                           VALUES('{request.form['name']}', '{request.form['course']}', '{1}.jpg');""")
             filename = secure_filename(f"{1}.jpg")
 
         conn.commit()
@@ -89,7 +91,8 @@ def adm_panel():
 
     names = cur.execute("SELECT name FROM photos").fetchall()
     photos = cur.execute("SELECT photo FROM photos").fetchall()
-    return render_template('adm_panel.html', names=names, photos=photos, len=len(names))
+    courses = cur.execute("SELECT course FROM photos").fetchall()
+    return render_template('adm_panel.html', names=names, photos=photos, courses=courses, len=len(names))
 
 
 @app.route('/edit', methods=['POST', 'GET'])  # поменять что нить
@@ -101,13 +104,15 @@ def edit():
         filename = request.args.get('image')
     if request.method == 'POST':
         cur.execute(f"UPDATE photos SET name='{request.form['name']}' WHERE photo='{filename}'")
+        cur.execute(f"UPDATE photos SET course='{request.form['course']}' WHERE photo='{filename}'")
         conn.commit()
         if request.files['photo']:
             file = request.files['photo']
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
         return redirect('/adm_panel')
     name = cur.execute(f"SELECT name FROM photos WHERE photo='{filename}'").fetchone()[0]
-    return render_template('edit.html', image=filename, name=name)
+    course = cur.execute(f"SELECT course FROM photos WHERE photo='{filename}'").fetchone()[0]
+    return render_template('edit.html', image=filename, course=course, name=name)
 
 
 @app.route('/del/<filename>')
