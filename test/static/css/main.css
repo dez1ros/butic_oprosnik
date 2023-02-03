@@ -1,92 +1,134 @@
-.logo {
-    top: 2vh;
-    left: 1vw;
-    position: absolute;
-    height: 7vh;
+@font-face {
+    font-family: Aye;
+    src: url(../fonts/Montserrat-Regular.ttf);
 }
 
 body {
-    font-family: DejaVu Sans Mono, monospace;
-    background-color: #DFE5D9;
+    font-family: Aye;
     margin:0;
 }
 
-header {
-    z-index: 2;
-    top:0;
-    width: 100%;
-    height: 12vh;
-    background: #fff;
+.left_menu {
+    position: absolute;
+    left: 0;
+    height: 100%;
+    width: 20vw;
+}
 
+.date {
+    text-align: center;
+    background-color: #555555;
+    color: #fff;
+    height: 65%;
+}
+
+#date {
+    position: relative;
+    top: 25%;
+}
+
+#date_day {
+    font-size: 13vh;
+}
+
+#date_month {
+    border-bottom: 2px solid;
+    font-size: 5vh;
+}
+
+.weather {
+    position: absolute;
+    height: 35%;
+}
+
+.city {
+    position: relative;
+    left: 2vw;
+    font-size: 3vh;
+}
+
+.img {
+    height: 6vw;
+}
+
+.time {
+    font-size: 2vh
+}
+
+.grad {
+    font-size: 3vh;
+}
+
+.timer {
+    color: #fff;
+    z-index: 2;
+    font-size: 7vh;
+    position: absolute;
+    right: 5vw;
+    top: 3vw;
+}
+
+.bottom_menu {
+    position: absolute;
+    bottom: 0;
+    left: 20vw;
+    height: 15vh;
+    width: 80%;
+    background-color: #555555;
+}
+
+.some_words {
+    font-size: 2vh;
+    color: #d8ffb3;
+    left: 0;
+    height: 100%;
+    width: 60%;
+    border-radius: 0 20px 20px 0;
+    position: absolute;
+    background-color: #7eba48;
+}
+
+#some_words {
+    margin: 2vh;
+}
+
+.logo {
+    top: 25%;
+    position: absolute;
+    right: 5vw;
+    height: 10vh;
+}
+
+#logo {
+    height: 6vh;
+}
+
+.menu {
+    position: absolute;
+    top: 0;
+    width: 80%;
+    right: 0;
+    height: 85%;
+    background-image: url("../../static/img/bg.png");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .centered {
   position: absolute;
-  top: 50%;
+  top: 60%;
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
 }
 
-.f_button {
-  text-decoration: none;
-  display: inline-block;
-  margin: 10px;
-  color: #7CC143;
-  box-shadow: 0 0 0 2px #7CC143;
-  padding: 20px 0;
-  width: 25vw;
-  font-size: 20px;
-  text-align: center;
-  text-transform: uppercase;
-  letter-spacing: 3px;
-  position: relative;
-  overflow: hidden;
-}
-
-.timer {
-    font-family: DejaVu Sans Mono, monospace;
-    font-size: 7vh;
-    position: absolute;
-    right: 0;
-}
-
-.left_menu {
-    position: absolute;
-    z-index: 1;
-    left: 0;
-    height: 85%;
-    width: 21vw;
-    background-color: #fff;
-}
-
-.menu {
-    box-shadow: -2px -2px 0 0 #7CC143;
-    z-index: 10;
-    position: absolute;
-    right: 0;
-    width: 79vw;
-    height: 88vh;
-}
-
-.date {
+.button {
+    background-color: #7ebb46;
+    color: #fff;
+    font-size: 3vh;
     text-align: center;
-    background-color: #C2843A;
-}
-
-#date {
-    font-size: 8vh;
-}
-
-.dop_info{
-    background-color: #aaa;
-    height: 15%;
-}
-
-#dop_info {
-    font-size: 2vw;
-}
-
-.weather {
-    background-color: #DFE5D9;
+    height: 8vh;
+    width: 20vw;
+    border: 0;
+    border-radius: 10px;
 }

@@ -33,7 +33,7 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 
 @app.route('/')
-def main():            # ну тут просто главная менюшка
+def main():  # ну тут просто главная менюшка
     return render_template('main.html')
 
 
