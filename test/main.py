@@ -4,7 +4,7 @@ from flask_login import LoginManager
 from waitress import serve
 from werkzeug.utils import secure_filename
 
-UPLOAD_FOLDER = 'C:\\Users\\user\\PycharmProjects\\butic\\test\\static\\img\\rab'
+UPLOAD_FOLDER = f"{os.getcwd()}\\static\\img\\rab"
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
 conn = sqlite3.connect('database.db', check_same_thread=False)  # Создание файла базы данных, если его нет
 cur = conn.cursor()
