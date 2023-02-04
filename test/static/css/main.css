@@ -16,11 +16,12 @@ body {
 }
 
 .date {
-    box-shadow:  inset 0 0 1vh black;
+    margin-bottom: 5vh;
+    box-shadow: 0 1.5vh 3vh #555555;
     text-align: center;
     background-color: #555555;
     color: #fff;
-    height: 65%;
+    height: 60%;
 }
 
 #date {
@@ -43,15 +44,20 @@ body {
 }
 
 .city {
+    margin-bottom: 2vh;
     position: relative;
     left: 2vw;
     font-size: 3vh;
 }
 
+.main_img {
+    height: 3vw;
+}
+
 .img {
     text-align: center;
     display: block;
-    height: 6vw;
+    height: 4vw;
 }
 
 .time {
@@ -67,6 +73,7 @@ body {
 }
 
 .timer {
+    text-shadow: 0.2vh 0.2vh 1vh #555555;
     color: #fff;
     z-index: 2;
     font-size: 7vh;
@@ -130,7 +137,7 @@ body {
 }
 
 .button {
-    box-shadow: 0.4vw 1vh 0 0 #707070;
+    box-shadow: 0 1vh 1vh #707070;
     background-color: #7ebb46;
     color: #fff;
     font-size: 3vh;
@@ -142,9 +149,10 @@ body {
 }
 
 .block {
+    margin-left: 1vh;
      float:left;
 }
 
-#des {
+.des {
     font-size: 2vh;
 }
