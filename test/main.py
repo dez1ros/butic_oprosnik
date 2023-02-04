@@ -1,6 +1,5 @@
 from flask import Flask, render_template, request, redirect, session, flash, url_for
 import sqlite3, os
-from flask_login import LoginManager
 from waitress import serve
 from werkzeug.utils import secure_filename
 

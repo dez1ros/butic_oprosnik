@@ -63,13 +63,13 @@ body {
 .time {
     text-align: center;
     display: block;
-    font-size: 2vh
+    font-size: 1vw;
 }
 
 .grad {
     text-align: center;
     display: block;
-    font-size: 3vh;
+    font-size: 2vw;
 }
 
 .timer {
@@ -161,5 +161,5 @@ body {
 }
 
 .des {
-    font-size: 2vh;
+    font-size: 1.4vw;
 }
