@@ -94,16 +94,19 @@ body {
 .some_words {
     font-size: 2vh;
     color: #d8ffb3;
-    left: 0;
-    height: 100%;
+    left: 2vw;
+    top: 1vh;
+    height: 85%;
     width: 60%;
-    border-radius: 0 2vh 2vh 0;
+    border-radius: 2vh 2vh 2vh 2vh;
     position: absolute;
     background-color: #7eba48;
 }
 
 #some_words {
-    margin: 3vh;
+    margin-top: 1vh;
+    margin-left: 2vw;
+    margin-right: 1vw;
 }
 
 .logo {
@@ -144,6 +147,7 @@ body {
 }
 
 .button {
+    cursor: pointer;
     box-shadow: 0 1vh 1vh #707070;
     background-color: #7ebb46;
     color: #fff;

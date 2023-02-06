@@ -135,28 +135,13 @@ text-align: center;
 }
 
 table {
+    position: absolute;
     table-layout: fixed;
    border-collapse: collapse;
-   /*убираем пустые промежутки между ячейками*/
    border: 1px solid grey;
-   /*устанавливаем для таблицы внешнюю границу серого цвета толщиной 1px*/
 }
 th, td {
    border: 1px solid grey;
-}
-
-.dom_img {
-    height: 50vh;
-    position: absolute;
-    bottom:0;
-    left:0;
-}
-
-.sun_img {
-    height: 20vh;
-    position: absolute;
-    top:3vh;
-    right:3vw;
 }
 
 .black_fon {
@@ -197,3 +182,56 @@ th, td {
      height: 4vh;
 }
 
+
+.edit {
+    max-width: 200vw;
+    position: absolute;
+    width: 100%:
+    height: 100%;
+    top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.img{
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0);
+    margin-bottom: 50px;
+    width: 300px;
+    height: 300px;
+}
+
+.but {
+    cursor:pointer;
+    background-color: #DFE5D9;
+    width: 15vw;
+     height: 4vh;
+     border-radius: 10px;
+     border: 1px solid #58595B;
+}
+
+.inp {
+    background-color: #DFE5D9;
+    text-align: center;
+     outline: none;
+    margin-top: 5%;
+    border: 1px solid #58595B;
+    border-radius: 10px;
+     width: 15vw;
+     height: 4vh;
+}
+
+.block {
+    padding: 20px;
+    float: left;
+    margin-right: 50px;
+    margin-bottom: 20px;
+    border: 1px solid;
+}
+
+.alles {
+    position: absolute;
+    top: 10%;
+    left: 10%;
+}

@@ -53,7 +53,6 @@ def checklist():
 def adm_reg():
     if 'login' in session and session['login'] == 1:
         return redirect('/adm_panel')
-    session.permanent = False
     if request.method == 'GET':
         return render_template('adm_reg.html')
     else:

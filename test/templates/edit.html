@@ -9,14 +9,45 @@
 <div>
     <a href="/"><img class="logo" src="static/img/bytic_logo.png"></a>
 </div>
-<div>
+<div class="edit">
     <form method="post" enctype="multipart/form-data">
-        <input autocomplete="off" type="text" value="{{ name }}" name="name">
-        <input autocomplete="off" type="text" value="{{ course }}" name="course">
-        <img src="static/img/rab/{{ image }}" width="200" height="200">
-        <input accept="image/*" type="file" placeholder="Выберете новый файл" name="photo">
-        <a href="/del/{{ image }}">Удалить</a>
-        <button type="submit"> Сохранить имя и изображение</button>
+        <div>
+            <img class="img" src="static/img/rab/{{ image }}">
+        </div>
+        <div>
+            <div style="float: left;">
+                <div>
+                    <label>Имя</label>
+                </div>
+                <input id="name" class="inp" placeholder="Имя" autocomplete="off" type="text" value="{{ name }}"
+                       name="name">
+            </div>
+            <div style="float: left;">
+                <div>
+                    <label>Курс</label>
+                </div>
+                <input class="inp" placeholder="Название курса" autocomplete="off" type="text" value="{{ course }}"
+                       name="course">
+            </div>
+        </div>
+        <div>
+            <label>Выбрать новое изображение</label>
+            <input style="cursor:pointer;" class="inp" accept="image/*" type="file" placeholder="Выберете новый файл"
+                   name="photo">
+        </div>
+        <div>
+            <br>
+            <br>
+            <a href="/del/{{ image }}">
+                <button style="" class="but">Удалить</button>
+            </a>
+            <button class="but" type="submit"> Сохранить имя и изображение</button>
+        </div>
+        <div style="margin-top: 40px;">
+            <a href="/admin">
+                <button style="width: 100%;" class="but">Отмена</button>
+            </a>
+        </div>
     </form>
 </div>
 </body>

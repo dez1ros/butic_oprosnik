@@ -2,16 +2,19 @@
 let slideIndex = 1;
 /* Вызываем функцию, которая реализована ниже: */
 showSlides(slideIndex);
+showBg(slideIndex);
 
 /* Увеличиваем индекс на 1 — показываем следующий слайд: */
 function nextSlide() {
     clearTimeout(timerId);
-    timerId = setTimeout(nextSlide, 6000);
+    timerId = setTimeout(nextSlide, 5000);
     showSlides(slideIndex += 1);
 }
 
 /* Уменьшаем индекс на 1 — показываем предыдущий слайд: */
 function previousSlide() {
+    clearTimeout(timerId);
+    timerId = setTimeout(nextSlide, 5000);
     showSlides(slideIndex -= 1);
 }
 
@@ -39,6 +42,18 @@ function showSlides(n) {
     }
     /* Делаем элемент блочным: */
     slides[slideIndex - 1].style.display = "block";
+    showBg(n)
 };
 
-timerId = setTimeout(nextSlide, 6000);
+function showBg(n) {
+    let slides = document.getElementsByClassName("bg");
+
+    for (let slide of slides) {
+        slide.style.display = "none";
+    }
+
+    slides[slideIndex - 1].style.display = "block";
+};
+
+
+timerId = setTimeout(nextSlide, 5000);

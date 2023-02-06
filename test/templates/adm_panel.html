@@ -13,43 +13,70 @@
 <div style="position:fixed; top:2%; left:90%;">
     <a href="/exit">Выйти из аккаунта</a>
 </div>
+<div style="position:fixed; top:0.1%; left:45%;">
+    <h1>Все работы</h1>
+</div>
+
 <div>
     <div class="center_form hide add_menu" id="add">
         <form method="post" enctype="multipart/form-data">
             <input autocomplete="off" type="text" placeholder="Введите имя" name="name" class="input"><br>
-            <input autocomplete="off" type="text" placeholder="Введите названия курса" name="course" class="input"><br>
-            <input accept="image/*" type="file" placeholder="Выберете файл" name="photo" class="input" style=";" id="input_file"><br>
-<!--            <label for="input_file">-->
-<!--                <span class="button">Выберете картинку</span>-->
-<!--            </label>-->
-            <button type="submit" onclick="hide()" class="button" style="margin-top: 10%;">Добавить</button><br>
+            <input autocomplete="off" type="text" placeholder="Введите название курса" name="course" class="input"><br>
+            <input accept="image/*" type="file" placeholder="Выберете файл" name="photo" class="input" style=";"
+                   id="input_file"><br>
+            <button type="submit" onclick="hide()" class="button" style="margin-top: 10%;">Добавить</button>
+            <br>
             <button onclick="hide()" type="reset" class="button">Отмена</button>
         </form>
     </div>
     <div class="">
-        <button onclick="show()" class="add_img">Добавить картинку</button>
+        <button onclick="show()" class="add_img">Добавить работу</button>
     </div>
-    <div class="centr_form" style="top: 10%">
-        <table>
-            <col width="100">
-            <col width="200">
-            <col width="100">
-            {% for i in range(len) %}
-            <tr>
-                <td class="asd">
-                    {{ names[i][0] }}
-                    {{ courses[i][0] }}
-                </td>
-                <td>
-                    <img src="/static/img/rab/{{ photos[i][0] }}" width="200" height="200">
-                </td>
-                <td class="asd">
-                    <a href="/edit?image={{ photos[i][0] }}">Изменить</a>
-                </td>
-            </tr>
-            {% endfor %}
-        </table>
+
+    <div class="alles">
+        {% for i in range(len) %}
+        <div class="block">
+            <div>
+                <img style="object-fit: contain;" src="/static/img/rab/{{ photos[i][0] }}" width="200" height="200">
+            </div>
+            <div style="margin-top: 5px;">
+                Имя: {{ names[i][0] }}
+            </div>
+            <div style="margin-top: 5px;">
+                Курс: {{ courses[i][0] }}
+            </div>
+            <div style="margin-top: 5px;">
+                <a href="/edit?image={{ photos[i][0] }}">Изменить</a>
+            </div>
+        </div>
+        {% endfor %}
     </div>
+    <!--    <div class="centr_form" style="top: 10%">-->
+    <!--        <table>-->
+    <!--            <thead>-->
+    <!--            <tr>-->
+    <!--                <th>Имя и курс</th>-->
+    <!--                <th>Изображение</th>-->
+    <!--                <th>Изменить</th>-->
+    <!--            </tr>-->
+    <!--            </thead>-->
+    <!--            {% for i in range(len) %}-->
+    <!--            <tr>-->
+    <!--                <td class="asd">-->
+    <!--                    {{ names[i][0] }}-->
+    <!--                    <br>-->
+    <!--                    {{ courses[i][0] }}-->
+    <!--                </td>-->
+    <!--                <td>-->
+    <!--                    <img src="/static/img/rab/{{ photos[i][0] }}" width="200" height="200">-->
+    <!--                </td>-->
+    <!--                <td class="asd">-->
+    <!--                    <a href="/edit?image={{ photos[i][0] }}">Изменить</a>-->
+    <!--                </td>-->
+    <!--            </tr>-->
+    <!--            {% endfor %}-->
+    <!--        </table>-->
+    <!--    </div>-->
 </div>
 <script src="static/js/adm_js.js"></script>
 </body>
