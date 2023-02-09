@@ -23,8 +23,25 @@
 <div class="left_menu">
     <div class="date">
         <div id="date">
-            <span id="date_day"></span><br>
+            <span id="date_day"></span>
             <span id="date_month"></span>
+            <div class="calendar">
+                <table id="calendar1">
+                    <thead>
+                    <tr>
+                        <td colspan="4">
+                        <td colspan="3">
+                    <tr>
+                        <td>Пн
+                        <td>Вт
+                        <td>Ср
+                        <td>Чт
+                        <td>Пт
+                        <td>Сб
+                        <td>Вс
+                    <tbody>
+                </table>
+            </div>
         </div>
     </div>
     <div class="weather">
@@ -32,14 +49,14 @@
             <strong>Троицк, </strong><span id="grad"></span>
         </div>
         <div class="city_des">
-            <div style="left: 1vw;height: 2vh;">
+            <div style="font-size: 2vh;">
                 <span class="des" id="des"></span>
             </div>
-            <div style="height: 2vh;">
+            <div style="font-size: 2vh;">
                 <span class="des">Влажность</span>
                 <span class="des" id="vlaj"></span>
             </div>
-            <div style="height: 2vh;">
+            <div style="font-size: 2vh;">
                 <span class="des">Давление</span>
                 <span class="des" id="dav"></span>
             </div>
@@ -79,5 +96,6 @@
 <script src="static/js/clock.js"></script>
 <script src="static/js/weather.js"></script>
 <script src="static/js/button.js"></script>
+<script src="static/js/calendar.js"></script>
 </body>
 </html>
