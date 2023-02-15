@@ -75,7 +75,7 @@ body {
 .img {
     text-align: center;
     display: block;
-    height: 4vw;
+    height: 3vw;
 }
 
 .time {
@@ -179,7 +179,7 @@ body {
 }
 
 .block {
-    margin-left: 1vh;
+    margin-left: 2.2vh;
      float:left;
 }
 
