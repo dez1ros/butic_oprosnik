@@ -53,10 +53,12 @@ function update_weather() {
         t_3.textContent = times[time_3];
         t_4.textContent = times[time_4];
 
-        weather_img_1.src = "https://openweathermap.org/img/wn/" + time1.weather[0]['icon'] + "@2x.png";
-        weather_img_2.src = "https://openweathermap.org/img/wn/" + time2.weather[0]['icon'] + "@2x.png";
-        weather_img_3.src = "https://openweathermap.org/img/wn/" + time3.weather[0]['icon'] + "@2x.png";
-        weather_img_4.src = "https://openweathermap.org/img/wn/" + time4.weather[0]['icon'] + "@2x.png";
+
+        console.log(time1.weather[0]['icon'] + ".png");
+        weather_img_1.src = "static/img/" + time1.weather[0]['icon'] + ".png";
+        weather_img_2.src = "static/img/" + time2.weather[0]['icon'] + ".png";
+        weather_img_3.src = "static/img/" + time3.weather[0]['icon'] + ".png";
+        weather_img_4.src = "static/img/" + time4.weather[0]['icon'] + ".png";
 
         grad_1.textContent = Math.round(time1.main.temp) + '°';
         grad_2.textContent = Math.round(time2.main.temp) + '°';
@@ -73,4 +75,4 @@ function capitalizeFirstLetter(string) {
 
 update_weather();
 
-setInterval(update_weather, 1000 * 60);
+setInterval(update_weather, 1000 * 60 * 5);
