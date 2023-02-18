@@ -29,4 +29,12 @@ if (D1Nlast != 0) {
     for(var  i = D1Nlast; i < 7; i++) calendar1 += '<td>';
 }
 
-document.querySelector('#calendar1 tbody').innerHTML = calendar1;
+
+
+function asd(){
+    console.log('321');
+    document.querySelector('#calendar1 tbody').innerHTML = calendar1;
+}
+
+asd();
+setInterval(asd, 1000 * 60);
