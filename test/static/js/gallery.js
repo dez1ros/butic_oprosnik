@@ -1,59 +1,14 @@
-/* Устанавливаем стартовый индекс слайда по умолчанию: */
-let slideIndex = 1;
-/* Вызываем функцию, которая реализована ниже: */
-showSlides(slideIndex);
-showBg(slideIndex);
+showSlides(0);
 
-/* Увеличиваем индекс на 1 — показываем следующий слайд: */
-function nextSlide() {
-    clearTimeout(timerId);
-    timerId = setTimeout(nextSlide, 5000);
-    showSlides(slideIndex += 1);
-}
-
-/* Уменьшаем индекс на 1 — показываем предыдущий слайд: */
-function previousSlide() {
-    clearTimeout(timerId);
-    timerId = setTimeout(nextSlide, 5000);
-    showSlides(slideIndex -= 1);
-}
-
-/* Устанавливаем текущий слайд: */
-function currentSlide(n) {
-    showSlides(slideIndex = n);
-}
-
-/* Функция перелистывания: */
 function showSlides(n) {
-    /* Обращаемся к элементам с названием класса "item", то есть к картинкам: */
-    let slides = document.getElementsByClassName("item");
-
-    /* Проверяем количество слайдов: */
-    if (n > slides.length) {
-      slideIndex = 1
-    }
-    if (n < 1) {
-        slideIndex = slides.length
-    }
-
-    /* Проходим по каждому слайду в цикле for: */
-    for (let slide of slides) {
-        slide.style.display = "none";
-    }
-    /* Делаем элемент блочным: */
-    slides[slideIndex - 1].style.display = "block";
-    showBg(n)
-};
-
-function showBg(n) {
     let slides = document.getElementsByClassName("bg");
-
+    console.log(n)
     for (let slide of slides) {
         slide.style.display = "none";
     }
-
-    slides[slideIndex - 1].style.display = "block";
+    slides[n].style.display = "block";
 };
 
-
-timerId = setTimeout(nextSlide, 5000);
+$('#carousel').on('slide.bs.carousel', function (e) {
+    showSlides(e.to)
+})

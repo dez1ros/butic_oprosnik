@@ -23,7 +23,7 @@ body {
 
 .image {
     padding-top: 5vh;
-    max-width: 100%;
+    max-width: 80%;
     height: 95vh;
     object-fit: contain;
 }
@@ -31,6 +31,8 @@ body {
 .bg {
     filter: blur(3vh);
     z-index: -1;
+    animation-name: fade;
+    animation-duration: 1s;
     top: 0;
     left: 0;
     position: absolute;
@@ -73,3 +75,11 @@ body {
     width: 20vw;
     border-radius: 2vh 2vh 0 0;
 }
+
+@keyframes fade {
+    from {
+        opacity: 0.5
+    }
+    to {
+        opacity: 1
+    }
