@@ -49,7 +49,7 @@ def checklist():
     return '123'
 
 
-@app.route('/admin', methods=['POST', 'GET'])  # вход в аккаут администратора
+@app.route('/admin', methods=['POST', 'GET'])  # вход в аккаунт администратора
 def adm_reg():
     if 'login' in session and session['login'] == 1:
         return redirect('/adm_panel')

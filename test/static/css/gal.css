@@ -1,25 +1,7 @@
-@font-face {
-    font-family: Aye;
-    src: url(../fonts/Montserrat-Regular.ttf);
-}
-
 body {
-    font-family: Aye;
-    background;
+    text-align: center!important;
 }
 
-.bg img {
-    filter: blur(3vh);
-    z-index: -1;
-    animation-name: fade;
-    animation-duration: 1s;
-    top: 0;
-    left: 0;
-    position: absolute;
-    object-fit: cover;
-    width: 100%;
-    height: 100%;
-}
 
 .logo {
     z-index: 1;
@@ -29,8 +11,53 @@ body {
     height: 5%;
 }
 
+.carousel1 {
+    width: 100vw;
+    height: 100vh;
+}
+
 .item {
-    text-align: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+.image {
+    padding-top: 5vh;
+    max-width: 100%;
+    height: 95vh;
+    object-fit: contain;
+}
+
+.bg {
+    filter: blur(3vh);
+    z-index: -1;
+    top: 0;
+    left: 0;
+    position: absolute;
+    object-fit: cover;
+    width: 100vw;
+    height: 100vh;
+}
+
+.but {
+    cursor: pointer;
+    position: absolute;
+    top: 45%;
+    padding: 2vh;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.2);
+    font-weight: bold;
+    font-size: 40px;
+    border-radius: 100px 0 0 100px;
+}
+
+.but3 {
+    left: 0;
+}
+
+.but2 {
+    right: 0;
+    border-radius: 0 100px 100px 0;
 }
 
 .words {
@@ -45,67 +72,4 @@ body {
     background-color: #7eba48;
     width: 20vw;
     border-radius: 2vh 2vh 0 0;
-}
-
-* {
-	-webkit-user-select: none;
-	-khtml-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
-}
-
-.slider{
-    padding-top: 5vh;
-    width: 80vw;
-    position: relative;
-    margin: auto;
-    height: 80vh;
-}
-
-.slider .item img {
-    object-fit: contain;
-    padding-bottom: 5vh;
-    width: 90%;
-    height: 80vh;
-}
-
-/* Кнопки назад и вперёд: */
-.slider .previous, .slider .next {
-    /* Добавляет курсору иконку, когда тот оказывается над кнопкой: */
-    cursor: pointer;
-    /* Положение элемента задаётся относительно границ браузера: */
-    position: absolute;
-    top: 50%;
-    padding: 2vh;
-    /* Оформление самих кнопок: */
-    color: white;
-    background-color: rgba(0, 0, 0, 0.2);
-    font-weight: bold;
-    font-size: 40px;
-    /* Скругление границ: */
-    border-radius: 100px 0 0 100px;
-}
-
-.slider .next {
-    right: 0vw;
-    border-radius: 0 100px 100px 0;
-}
-
-
-
-/* Анимация слайдов: */
-.slider .item {
-    animation-name: fade;
-    animation-duration: 1s;
-}
-
-
-@keyframes fade {
-    from {
-        opacity: 0.3
-    }
-    to {
-        opacity: 1
-    }
 }
