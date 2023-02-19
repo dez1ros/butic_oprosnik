@@ -42,7 +42,6 @@ function update_weather() {
         var time_2 = time2.dt_txt.split(' ')[1].split(':')[0];
         var time_3 = time3.dt_txt.split(' ')[1].split(':')[0];
         var time_4 = time4.dt_txt.split(' ')[1].split(':')[0];
-        console.log(data);
 
         vlaj.textContent = time.main['humidity'] + '%';
         dav.textContent =  Math.round(time.main['pressure'] * 0.75006) + " мм рт. ст.";
@@ -54,7 +53,6 @@ function update_weather() {
         t_4.textContent = times[time_4];
 
 
-        console.log(time1.weather[0]['icon'] + ".png");
         weather_img_1.src = "static/img/" + time1.weather[0]['icon'] + ".png";
         weather_img_2.src = "static/img/" + time2.weather[0]['icon'] + ".png";
         weather_img_3.src = "static/img/" + time3.weather[0]['icon'] + ".png";

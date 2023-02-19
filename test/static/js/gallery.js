@@ -2,7 +2,6 @@ showSlides(0);
 
 function showSlides(n) {
     let slides = document.getElementsByClassName("bg");
-    console.log(n)
     for (let slide of slides) {
         slide.style.display = "none";
     }
